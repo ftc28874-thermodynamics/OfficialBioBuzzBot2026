@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.robot.visionManager;
 import org.firstinspires.ftc.vision.apriltag.AprilTagPoseFtc;
 import org.firstinspires.ftc.teamcode.robot.visionManager.AllianceColor;
 
-@TeleOp(name = "BIOBUZZ Turret Test")
+@TeleOp(name = "Camera Test")
 public class visionTest extends LinearOpMode {
 
     private visionManager vision = new visionManager();
@@ -44,11 +44,11 @@ public class visionTest extends LinearOpMode {
             AprilTagPoseFtc pose = vision.trackHive(AllianceColor.RED);
 
             if (pose != null) {
-                telemetry.addData("Status", tipped ? "TIPPED" : "CENTERING");
-                telemetry.addData("Bearing", "%.2f", pose.bearing);
-                telemetry.addData("Position", "%.3f", pos);
+                telemetry.addData("status", tipped ? "tipped" : "centering");
+                telemetry.addData("bearing", "%.2f", pose.bearing);
+                telemetry.addData("position", "%.3f", pos);
             } else {
-                telemetry.addLine("No Red Hive visible");
+                telemetry.addLine("red hive not in frame");
             }
 
             telemetry.update();
